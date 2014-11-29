@@ -1,0 +1,10 @@
+---
+name: flexiaddress
+---
+FlexiAddress:
+  searchable_fields:
+    - StreetLine1
+    - City
+    - State
+    - Country
+  
