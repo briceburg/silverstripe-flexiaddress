@@ -48,6 +48,42 @@ class Office extends Page
 Trigger the environment builder (/dev/build) after extending your objects --
 You will now see the Address tab when editing Office in the CMS.
 
+To display addresses on the Front-End, update your templates. Here's an example
+Office.ss
+
+```html
+<div itemscope itemtype="http://schema.org/LocalBusiness" id="office">
+  <meta itemprop="branchOf" itemscope itemtype="http://schema.org/Organization" itemref="footer" />
+
+  <h1>$Title</h1>
+
+  ... 
+  
+  <% loop FlexiAddresses %>
+
+    <h2>Address</h2>
+    <% include FlexiAddress %> 
+    
+    <a href="$AddressMapLink" target="_blank" class="directions font-opensans">
+      Get Directions
+    </a> 
+      
+    <% loop PhoneNumbers %> 
+      <% include FlexiAddressPhone %> 
+    <% end_loop %> 
+  <% end_loop %> 
+  
+  ... 
+  
+  $Content
+
+</div>
+
+```
+
+You may, as always, override the [built-in templates](https://github.com/briceburg/silverstripe-flexiaddress/tree/master/templates) by
+adding them to your theme and changing markup as needed.
+
 
 ### Limiting Fields
 
