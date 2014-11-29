@@ -15,7 +15,8 @@
 		"issues": "https://github.com/briceburg/silverstripe-flexiaddress/issues"
 	},
 	"require": {
-    "silverstripe/framework": "~3.0"
+    "silverstripe/framework": "~3.0",
+    "silverstripe-australia/gridfieldextensions": "*"
   },
 	"extra": {
 		"installer-name": "flexiaddress",
