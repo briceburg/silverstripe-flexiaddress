@@ -15,9 +15,6 @@ class GridFieldConfig_FlexiAddresses extends GridFieldConfig
         $this->addComponent(new GridFieldDeleteAction(true));
         $this->addComponent(new GridFieldDetailForm());
 
-        $component = $this->getComponentByType('GridFieldAddExistingSearchButton');
-        $component->setTitle('Link Existing');
-
 
         // Sort Order
         // ///////////
