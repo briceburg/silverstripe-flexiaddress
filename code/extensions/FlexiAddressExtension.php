@@ -48,6 +48,25 @@ class FlexiAddressExtension extends DataExtension
             $this->getFlexiAddressInsertBefore());
     }
 
+    // template
+    ///////////
+
+    /**
+     * Used to get the first address associated with an object
+     * Returns the FlexiAddress, or null if none are found.
+     *
+     * @return FlexiAddress|null
+     */
+
+    public function FlexiAddress(){
+        return $this->owner->FlexiAddresses()->first();
+    }
+
+
+    // getters + setters
+    ////////////////////
+
+
     public function getFlexiAddressTab()
     {
         return $this->lookup('flexiaddress_tab');
