@@ -2,6 +2,7 @@
 
 class FlexiAddress extends DataObject
 {
+    private static $template = null;
 
     private static $db = array(
         'StreetLine1' => 'Varchar',
@@ -129,6 +130,14 @@ class FlexiAddress extends DataObject
         return $fields;
     }
 
+    public function getTemplate(){
+        return ($this->stat('template')) ?  : $this->ClassName;
+    }
+
+    public function setTemplate($template){
+        $this->set_stat('template', $template);
+    }
+
     public function FullStateName()
     {
         if ($state = $this->AddressState) {
@@ -176,6 +185,15 @@ class FlexiAddress extends DataObject
         }
 
         return implode(', ', $phones);
+    }
+
+    public function forTemplate()
+    {
+        return $this->renderWith(
+            array(
+                $this->getTemplate(),
+                'FlexiAddress'
+            ));
     }
 
     public function __toString()
