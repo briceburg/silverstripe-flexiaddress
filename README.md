@@ -31,7 +31,7 @@ Usage
 =====
 
 * Add address and phone numbers to your Objects by extending them with
-`FlexiAddressExtension`.  E.g.
+`FlexiAddressExtension`.
 
 ```php
 class Office extends Page
@@ -73,7 +73,7 @@ Here's an example Office.ss
 ```
 
 
-You can also loop through aqddresses. Here's an example Office.ss
+You can also loop through addresses. Here's an example Office.ss
 
 ```html
 <div itemscope itemtype="http://schema.org/LocalBusiness" id="office">
