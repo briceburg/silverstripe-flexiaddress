@@ -107,7 +107,10 @@ class FlexiAddress extends DataObject
                 break;
 
             case 'State':
-                $field = new USStateDropdownField($field_name, $field_title);
+                $field = (class_exists('USStateDropdownField')) ?
+                    new USStateDropdownField($field_name, $field_title) :
+                    new TextField($field_name, $field_title);
+
                 break;
 
             case 'Email':
@@ -140,8 +143,10 @@ class FlexiAddress extends DataObject
 
     public function FullStateName()
     {
-        if ($state = $this->AddressState) {
-            return USStateDropdownField::$states[$this->AddressState];
+        if ($state = $this->State) {
+            return (class_exists('USStateDropdownField')) ?
+                USStateDropdownField::$states[$this->State] :
+                $this->State;
         }
     }
 

@@ -1,28 +1,31 @@
 {
-	"name": "briceburg/silverstripe-flexiaddress",
-	"description": "Add microdata friendly addresses and phone numbers to your SilverStripe objects.",
-	"type": "silverstripe-module",
-	"homepage": "https://github.com/briceburg/silverstripe-flexiaddress",
-	"keywords": ["silverstripe", "contact", "address", "gridfield", "flexi", "phone", "phone numbers", "manage", "cms"],
-	"license": "BSD-3-Clause",
-	"authors": [
-		{
-			"name": "Brice Burgess",
-			"email": "briceburg@gmail.com"
-		}
-	],
-	"support": {
-		"issues": "https://github.com/briceburg/silverstripe-flexiaddress/issues"
-	},
-	"require": {
+  "name": "briceburg/silverstripe-flexiaddress",
+  "description": "Add microdata friendly addresses and phone numbers to your SilverStripe objects.",
+  "type": "silverstripe-module",
+  "homepage": "https://github.com/briceburg/silverstripe-flexiaddress",
+  "keywords": ["silverstripe", "contact", "address", "gridfield", "flexi", "phone", "phone numbers", "manage", "cms"],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Brice Burgess",
+      "email": "briceburg@gmail.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/briceburg/silverstripe-flexiaddress/issues"
+  },
+  "require": {
     "silverstripe/framework": "~3.0",
     "silverstripe-australia/gridfieldextensions": "*"
   },
-	"extra": {
-		"installer-name": "flexiaddress",
-		"screenshots": [
-			"docs/screenshots/flexiaddress_1.jpg",
-			"docs/screenshots/flexiaddress_2.jpg"
-		]
-	}
+  "suggest": {
+    "briceburg/silverstripe-flexifields": "Useful additional fields, including an improved USStateDropdownField for State selection."
+  },
+  "extra": {
+    "installer-name": "flexiaddress",
+    "screenshots": [
+      "docs/screenshots/flexiaddress_1.jpg",
+      "docs/screenshots/flexiaddress_2.jpg"
+    ]
+  }
 }
