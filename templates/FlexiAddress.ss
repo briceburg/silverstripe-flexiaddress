@@ -17,13 +17,9 @@
      <span itemprop="addressRegion" class="addressRegion">$FullStateName</span>
   <% end_if %>
   
-  
   <% if PostalCode %>
     <span itemprop="postalCode" class="postalCode">$PostalCode</span>
   <% end_if %>
 
 </address>
 </div>
-
-
-
