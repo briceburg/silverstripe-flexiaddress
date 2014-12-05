@@ -26,14 +26,12 @@ Screenshots
 
 ![list](https://github.com/briceburg/silverstripe-flexiaddress/blob/master/docs/screenshots/flexiaddress_2.jpg?raw=true)
 
-![search](https://github.com/briceburg/silverstripe-flexiaddress/blob/master/docs/screenshots/flexiaddress_3.jpg?raw=true)
-
 
 Usage 
 =====
 
-Add address and phone numbers to your DataObject's by extending them with the
-`FlexiAddressExtension` DataExtension.  E.g.
+* Add address and phone numbers to your Objects by extending them with
+`FlexiAddressExtension`.  E.g.
 
 ```php
 class Office extends Page
@@ -45,15 +43,40 @@ class Office extends Page
 
 }
 ```
-Trigger the environment builder (/dev/build) after extending your objects --
+
+* Trigger the environment builder (/dev/build) after extending your objects --
 You will now see the Address tab when editing Office in the CMS.
 
-To display addresses on the Front-End, update your templates. Here's an example
-Office.ss
+### Front-end
+
+FlexiAddress provides a shortcut to return the _first address_ associated.
+Here's an example Office.ss
+
+```html
+```html
+<div itemscope itemtype="http://schema.org/LocalBusiness" id="office">
+  <h1>$Title</h1>
+
+  ...
+  
+  $FlexiAddress
+  
+  <div class="office-phone-numbers">
+    <% loop FlexiAddress.PhoneNumbers %>
+      <% include FlexiAddressPhone %>
+    <% end_loop %>
+  </div>
+  
+  ...
+
+</div>
+```
+
+
+You can also loop through aqddresses. Here's an example Office.ss
 
 ```html
 <div itemscope itemtype="http://schema.org/LocalBusiness" id="office">
-  <meta itemprop="branchOf" itemscope itemtype="http://schema.org/Organization" itemref="footer" />
 
   <h1>$Title</h1>
 
@@ -75,11 +98,10 @@ Office.ss
   
   ... 
   
-  $Content
-
 </div>
 
 ```
+
 
 You may, as always, override the [built-in templates](https://github.com/briceburg/silverstripe-flexiaddress/tree/master/templates) by
 adding them to your theme and changing markup as needed.
