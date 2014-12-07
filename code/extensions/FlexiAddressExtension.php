@@ -62,6 +62,18 @@ class FlexiAddressExtension extends DataExtension
         return $this->owner->FlexiAddresses()->first();
     }
 
+    /**
+     * Used to get the first phone number associated with an object
+     * Returns the FlexiAddressPhone, or null if nore are found
+     *
+     * @return FlexiAddressPhone|null
+     */
+
+    public function FlexiAddressPhone(){
+        $address = $this->FlexiAddress();
+        return ($address->exists()) ? $address->PhoneNumbers()->first() : null;
+    }
+
 
     // getters + setters
     ////////////////////
