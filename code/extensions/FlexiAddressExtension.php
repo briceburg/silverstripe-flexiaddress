@@ -33,19 +33,27 @@ class FlexiAddressExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields)
     {
-        $enabled_fields = $this->getFlexiAddressFields();
-        Config::inst()->update('FlexiAddress', 'flexiaddress_fields', $enabled_fields);
 
-        $config = new GridFieldConfig_FlexiAddresses($enabled_fields, $this->owner);
-        $component = $config->getComponentByType('GridFieldAddNewButton');
-        $component->setButtonName($this->getFlexiAddressAddButton());
+        if ($this->owner->exists()) {
+            $enabled_fields = $this->getFlexiAddressFields();
+            Config::inst()->update('FlexiAddress', 'flexiaddress_fields', $enabled_fields);
 
-        $list = $this->owner->FlexiAddresses();
-        $field_title = ($list->count() > 1) ? 'Addresses' : 'Address';
+            $config = new GridFieldConfig_FlexiAddresses($enabled_fields, $this->owner);
+            $component = $config->getComponentByType('GridFieldAddNewButton');
+            $component->setButtonName($this->getFlexiAddressAddButton());
 
-        $fields->addFieldToTab($this->getFlexiAddressTab(),
-            new GridField('FlexiAddresses', $field_title, $list, $config),
-            $this->getFlexiAddressInsertBefore());
+            $list = $this->owner->FlexiAddresses();
+            $field_title = ($list->count() > 1) ? 'Addresses' : 'Address';
+
+            $fields->addFieldToTab($this->getFlexiAddressTab(),
+                new GridField('FlexiAddresses', $field_title, $list, $config),
+                $this->getFlexiAddressInsertBefore());
+        }
+        else {
+            $fields->addFieldToTab($this->getFlexiAddressTab(),
+                new LiteralField('FlexiAddresses', '<p>Please save before managing addresses.</p>'));
+        }
+
     }
 
     // template
