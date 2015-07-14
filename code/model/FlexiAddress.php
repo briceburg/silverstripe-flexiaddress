@@ -70,6 +70,8 @@ class FlexiAddress extends DataObject
                 $fields->addFieldToTab('Root.Main', $this->getFieldForName($field_name));
             }
         }
+		
+		$this->extend('updateCMSFields', $fields);
 
         return $fields;
     }
