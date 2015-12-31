@@ -37,8 +37,7 @@ class GridFieldConfig_FlexiAddressPhones extends GridFieldConfig
                 ),
                 'MetaType' => array(
                     'title' => 'Meta Type',
-                    'callback' => function ($record, $column_name, $grid)
-                    {
+                    'callback' => function ($record, $column_name, $grid) {
                         $source = singleton('FlexiAddressPhone')->dbObject('MetaType')
                             ->enumValues();
                         return new DropdownField($column_name, 'Meta Type', $source);
@@ -51,4 +50,3 @@ class GridFieldConfig_FlexiAddressPhones extends GridFieldConfig
         $this->addComponent(new GridFieldOrderableRows('SortOrder'));
     }
 }
-

@@ -75,7 +75,5 @@ class GridFieldConfig_FlexiAddresses extends GridFieldConfig
 
         }
         */
-
     }
 }
-

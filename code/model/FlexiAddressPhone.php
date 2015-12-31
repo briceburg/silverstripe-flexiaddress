@@ -32,27 +32,28 @@ class FlexiAddressPhone extends DataObject
         $type_map = $this->dbObject('MetaType')->enumValues();
 
         $group = FieldGroup::create(
-         	FieldGroup::create(
-         		TextField::create('Telephone', 'Phone Number'),
-         	    CheckboxField::create('MetaFax','Is Fax'),
-         	    CheckboxField::create('MetaTollFree', 'Toll Free')
-         	),
-         	FieldGroup::create(
-         		TextField::create('Label', 'Label (optional)')
-         	),
+             FieldGroup::create(
+                 TextField::create('Telephone', 'Phone Number'),
+                 CheckboxField::create('MetaFax', 'Is Fax'),
+                 CheckboxField::create('MetaTollFree', 'Toll Free')
+             ),
+             FieldGroup::create(
+                 TextField::create('Label', 'Label (optional)')
+             ),
             FieldGroup::create(
-            DropdownField::create('MetaType','Meta Type', $type_map)
+            DropdownField::create('MetaType', 'Meta Type', $type_map)
 
             )
          );
 
-        $fields->addFieldToTab('Root.Main',$group);
+        $fields->addFieldToTab('Root.Main', $group);
 
         return $fields;
     }
 
     // @todo limplement internationalizetion of phone number
-    public function IntlTelephone() {
+    public function IntlTelephone()
+    {
         return $this->Telephone;
     }
 
@@ -66,4 +67,3 @@ class FlexiAddressPhone extends DataObject
         return $this->toString();
     }
 }
-

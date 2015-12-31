@@ -33,7 +33,6 @@ class FlexiAddressExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields)
     {
-
         if ($this->owner->exists()) {
             $enabled_fields = $this->getFlexiAddressFields();
             Config::inst()->update('FlexiAddress', 'flexiaddress_fields', $enabled_fields);
@@ -48,12 +47,10 @@ class FlexiAddressExtension extends DataExtension
             $fields->addFieldToTab($this->getFlexiAddressTab(),
                 new GridField('FlexiAddresses', $field_title, $list, $config),
                 $this->getFlexiAddressInsertBefore());
-        }
-        else {
+        } else {
             $fields->addFieldToTab($this->getFlexiAddressTab(),
                 new LiteralField('FlexiAddresses', '<p>Please save before managing addresses.</p>'));
         }
-
     }
 
     // template
@@ -66,7 +63,8 @@ class FlexiAddressExtension extends DataExtension
      * @return FlexiAddress|null
      */
 
-    public function FlexiAddress(){
+    public function FlexiAddress()
+    {
         return $this->owner->FlexiAddresses()->first();
     }
 
@@ -77,7 +75,8 @@ class FlexiAddressExtension extends DataExtension
      * @return FlexiAddressPhone|null
      */
 
-    public function FlexiAddressPhone(){
+    public function FlexiAddressPhone()
+    {
         $address = $this->FlexiAddress();
         return ($address->exists()) ? $address->PhoneNumbers()->first() : null;
     }
@@ -137,4 +136,3 @@ class FlexiAddressExtension extends DataExtension
         return $this->owner->stat($lookup);
     }
 }
-
