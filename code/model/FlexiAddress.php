@@ -70,8 +70,8 @@ class FlexiAddress extends DataObject
                 $fields->addFieldToTab('Root.Main', $this->getFieldForName($field_name));
             }
         }
-		
-		$this->extend('updateCMSFields', $fields);
+        
+        $this->extend('updateCMSFields', $fields);
 
         return $fields;
     }
@@ -82,8 +82,8 @@ class FlexiAddress extends DataObject
         $enabled_fields = $this->getEnabledFields();
         $fields = array();
 
-        foreach($search_fields as $field_name) {
-            if(!in_array($field_name,$enabled_fields)) {
+        foreach ($search_fields as $field_name) {
+            if (!in_array($field_name, $enabled_fields)) {
                 continue;
             }
 
@@ -135,11 +135,13 @@ class FlexiAddress extends DataObject
         return $fields;
     }
 
-    public function getTemplate(){
+    public function getTemplate()
+    {
         return ($this->stat('template')) ?  : $this->ClassName;
     }
 
-    public function setTemplate($template){
+    public function setTemplate($template)
+    {
         $this->set_stat('template', $template);
     }
 
